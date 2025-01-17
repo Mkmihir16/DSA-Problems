@@ -1,3 +1,4 @@
+import java.util.*;
 class Solution {
     public boolean isCheck(HashMap<Character,Integer> hm){
         for(Map.Entry<Character,Integer> e:hm.entrySet()){
