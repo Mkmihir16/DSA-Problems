@@ -8,7 +8,7 @@ public class Solution {
         if(wt[i]<=W){
             int ans1=val[i]+findMaxCost(i+1, val, wt, W-wt[i]);
             int ans2=findMaxCost(i+1, val, wt, W);
-            return Math.max(ans1,ans2) ;
+            return Math.max(ans1,ans2);
         }
         else{
             return findMaxCost(i+1, val, wt, W);
@@ -73,7 +73,7 @@ public class Solution {
         int val[]={15,14,10,45,30};
         int wt[]={2,5,1,3,4};
         int W=7;
-        System.out.println(findMaxCost(0,val,wt,W)); //using rcursion
+        System.out.println(findMaxCost(0,val,wt,W)); //using recursion
 
         int[][] dp=new int[val.length+1][W+1];
         for(int i=0;i<dp.length;i++){
@@ -83,6 +83,12 @@ public class Solution {
         }
         //using memoization
         System.out.println( findCost_using_memoization(0,val,wt,W,dp)); //using memoization
+        for(int i=0;i<dp.length;i++){
+            for(int j=0;j<dp[0].length;j++){
+                System.out.print(dp[i][j]+" ");
+            }
+            System.out.println();
+        }
         //using tabulation
         System.out.println(findCost_using_tabulation(val,wt,W)); //using tabulation
     }
