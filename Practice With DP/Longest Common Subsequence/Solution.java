@@ -15,7 +15,7 @@ public class Solution {
         }
     }
     public static int lcs_using_memoization(String s1, String s2, int n, int m, int[][] dp) {
-        if (n < 0 || m< 0) {
+        if (n == 0 || m== 0) {
             return 0; // Base case: if either string is empty, LCS length is 0
         }
 
@@ -23,7 +23,7 @@ public class Solution {
             return dp[n][m]; // Return the cached result
         }
 
-        if (s1.charAt(n) == s2.charAt(m)) {
+        if (s1.charAt(n-1) == s2.charAt(m-1)) {
             dp[n][m] = 1 + lcs_using_memoization(s1, s2, n - 1, m - 1, dp);
         } else {
             int ans1 = lcs_using_memoization(s1, s2, n - 1, m, dp);
@@ -67,7 +67,7 @@ public class Solution {
             }
         }
         System.out.println("Length of Longest Common Subsequence is: " + lcs_using_recursion(s1, s2, n-1, m-1));
-        System.out.println("Length of Longest Common Subsequence using DP is: " + lcs_using_memoization(s1, s2, n-1, m-1, dp));  
+        System.out.println("Length of Longest Common Subsequence using DP is: " + lcs_using_memoization(s1, s2, n, m, dp));  
         System.out.println("Length of Longest Common Subsequence using Tabulation is: " + lcs_using_tabulation(s1, s2));
     }    
 }
